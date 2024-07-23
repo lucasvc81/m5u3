@@ -34,19 +34,37 @@ var pool = require ('./models/bd')
 
 // Insert
 
-var obj = {
-  nombre: 'Juan',
-  apellido: 'Lopez',
-  trabajo: 'Docente',
-  edad: 38,
-  salario: 1500000,
-  mail: 'juanlopez@gmail.com'
-}
+// var obj = {
+//   nombre: 'Juan',
+//   apellido: 'Lopez',
+//   trabajo: 'Docente',
+//   edad: 38,
+//   salario: 1500000,
+//   mail: 'juanlopez@gmail.com'
+// }
 
-pool.query('insert into Empleados set ?' , [obj]).then(function (resultados) {
+// pool.query('insert into Empleados set ?' , [obj]).then(function (resultados) {
+//   console.log(resultados)
+// });
+
+// Modificar
+
+// var id = 23
+// var obj = {
+//   nombre: 'Pablo',
+//   apellido: 'Gomez'
+// }
+
+// pool.query ('update empleados set ? where id_emp=?', [obj,id]).then(function (resultados) {
+//   console.log(resultados);
+//   });
+
+// Borrar
+
+var id = 18
+pool.query('delete from empleados where id_emp=?',[id]).then(function (resultados){
   console.log(resultados)
 });
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
