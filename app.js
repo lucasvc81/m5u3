@@ -28,9 +28,25 @@ var pool = require ('./models/bd')
 
 // Select
 
-pool.query('select * from empleados').then(function(resultados) {
+// pool.query('select * from empleados').then(function(resultados) {
+//   console.log(resultados)
+// });
+
+// Insert
+
+var obj = {
+  nombre: 'Juan',
+  apellido: 'Lopez',
+  trabajo: 'Docente',
+  edad: 38,
+  salario: 1500000,
+  mail: 'juanlopez@gmail.com'
+}
+
+pool.query('insert into Empleados set ?' , [obj]).then(function (resultados) {
   console.log(resultados)
 });
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
